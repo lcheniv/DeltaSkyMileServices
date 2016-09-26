@@ -1,0 +1,50 @@
+	<!DOCTYPE html>
+
+
+	<html>
+
+		<form action='/search' method='POST'>
+		{{session['current_user'][0]['flights'][0]['destination']}}
+		 <input id="searchTextField", type="text" size="50">
+		 <input type='hidden' value='{{index}}'>
+	     <button type=submit>Search</button>
+	</form>
+
+
+		
+
+	<input id="pac-input" type="text"
+        placeholder="Enter a location">
+	
+		
+		<script > 
+		
+		function init() {
+			// body...
+		
+				var defaultBounds = new google.maps.LatLngBounds(
+					new google.maps.LatLng(40.802089, -124.163751)
+					);
+
+	        	var input = document.getElementById('searchTextField');
+	        		        	
+	        	var options = {
+					bounds: defaultBounds,
+					componentRestrictions: {country: 'us'}
+					
+				};
+
+				var complete = new google.maps.places.Autocomplete(input, options);
+			}
+
+
+	        google.maps.event.addDomListener(window, 'load', init);
+
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" async defer></script>
+
+       
+
+
+
+	</html>
